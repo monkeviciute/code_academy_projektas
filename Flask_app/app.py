@@ -2,7 +2,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 
-PATH = r"C:\Users\Ruta\Desktop\STUDIJOS\4 SEMESTRAS\02. Python\finalized_model.sav"
+PATH = r"finalized_model.pickle"
 
 with open(f'{PATH}', 'rb') as handle:
     model = pickle.load(handle)
@@ -18,10 +18,13 @@ def Home():
 def predict():
     float_features = [float(x) for x in request.form.values()]
     features = [np.array(float_features)]
-    prediction = model.predict(features).tolist()
+    prediction = model.predict(features).tolist()[0]
+    zodynas = {0: "gerą reitingą turinčių žurnalų grupei", 1: "mažiausiai prestižinių žurnalų grupei",
+               2: "vidutinės svarbos žurnalų grupei", 3: "labiausiai cituojamų žurnalų grupei",
+               4 : "prestižiškiausių žurnalų grupei"}
 
     #return {"results": prediction}
-    return render_template("index.html", prediction_text = "Žurnalo klasteris yra {}".format(prediction))
+    return render_template("index.html", prediction_text = "Žurnalas priskiriamas {}".format(zodynas[prediction]))
 
 @flask_app.route("/test")
 def test_ok():

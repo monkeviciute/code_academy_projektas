@@ -1,0 +1,10 @@
+Flask
+functools
+fuzzywuzzy
+itertools
+networkx
+re
+scipy
+seaborn
+sklearn
+yellowbrick

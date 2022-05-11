@@ -18,12 +18,13 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="2018_SNIP" placeholder="2018_SNIP" required="required" />
-        <input type="text" name="2018_CiteScore" placeholder="2018_CiteScore" required="required" />
-        <input type="text" name="2018_SJR" placeholder="2018_SJR" required="required" />
-        <input type="text" name="2018_scopus_quartile" placeholder="2018_scopus_quartile" required="required" />
-        <input type="text" name="2018_AIF" placeholder="2018_AIF" required="required" />
-        <input type="text" name="2018_IF_quartile" placeholder="2018_IF_quartile" required="required" />
+    	<input type="text" name="2018_SNIP" placeholder="SNIP (Reikšmės: [0, 3])" required="required" />
+        <input type="text" name="2018_CiteScore" placeholder="CiteScore (Reikšmės: [0, 15])" required="required" />
+        <input type="text" name="2018_SJR" placeholder="SJR (Reikšmės: [0, 5])" required="required" />
+        <input type="text" name="2018_scopus_quartile" placeholder="Scopus_quartile (1,2,3,4)" required="required" />
+        <input type="text" name="2018_AIF" placeholder="AIF (Reikšmės: [0, 10])" required="required" />
+        <input type="text" name="2018_IF" placeholder="IF (Reikšmės: [0, 15])" required="required" />
+        <input type="text" name="2018_IF_quartile" placeholder="IF_quartile (1,2,3,4)" required="required" />
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
